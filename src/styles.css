@@ -61,7 +61,7 @@ html {
   text-align: center;
 
   color: var(--main-black-color);
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   font-family: "Homemade Apple", sans-serif;
   text-transform: lowercase;
 }
@@ -106,7 +106,7 @@ html {
   outline: unset;
 
   font-family: "Homemade Apple", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   text-transform: lowercase;
 }
 
@@ -114,7 +114,6 @@ html {
   font-size: 1.2rem;
   font-family: "Bungee", sans-serif;
 
-  padding: 16px;
   padding-right: unset;
   cursor: pointer;
 
@@ -130,6 +129,8 @@ html {
 .todos {
   display: flex;
   flex-direction: column;
+
+  min-height: 500px;
 }
 
 .todo {
@@ -138,7 +139,7 @@ html {
   flex: 1 0 auto;
   text-align: center;
 
-  min-height: 36px;
+  max-height: 36px;
   margin: 16px 0 0;
   font-family: "Homemade Apple", sans-serif;
   font-size: 24px;
@@ -147,6 +148,8 @@ html {
 }
 
 .todo-text {
+  width: 100%;
+  height: 50px;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
