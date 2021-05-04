@@ -7,22 +7,41 @@ import Todos from "../components/Todos";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([
-    { text: "Learning React!" },
-    { text: "Learning Parsing!" },
-    { text: "Learning!" }
+    { text: "Learning React!", isCompleted: false },
+    { text: "Learning Parsing!", isCompleted: false },
+    { text: "Learning!", isCompleted: false }
   ]);
 
+  const [showAdd, setShowAdd] = useState(false);
+
   const addTodo = (value) => {
-    const addedTodo = [...todos, { text: value }];
+    if (todos.length < 10) {
+      const addedTodo = [...todos, { text: value, isCompleted: false }];
+
+      setTodos(addedTodo);
+    } else {
+      alert("ONLY 10 TODOS ALLOWED!");
+    }
+  };
+
+  const completeTodo = (index) => {
+    const addedTodo = [...todos];
+    addedTodo[index].isCompleted = !addedTodo[index].isCompleted;
 
     setTodos(addedTodo);
   };
+  const clearTodos = () => setTodos([]);
+  const showAddToggle = () => setShowAdd(!showAdd);
 
   return (
     <Paper>
-      <Header />
-      <TodoForm addTodo={addTodo} />
-      <Todos todos={todos} />
+      <Header
+        showAddToggle={showAddToggle}
+        showAdd={showAdd}
+        clearTodos={clearTodos}
+      />
+      <TodoForm addTodo={addTodo} showAdd={showAdd} />
+      <Todos todos={todos} completeTodo={completeTodo} />
     </Paper>
   );
 };
